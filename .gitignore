@@ -1,0 +1,6 @@
+node_modules
+# 忽略所有備份 例如 meadowlark.js~
+*~
+# 如果是Mac則需要額外加入下行
+.DS_Store
+
