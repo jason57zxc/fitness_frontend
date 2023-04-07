@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-    mode: 'development',
+    //mode: 'development',
     devtool: 'source-map',
     entry: './src/index.js',
     output: {
@@ -61,5 +61,17 @@ module.exports = {
         }),
         //new webpack.HotModuleReplacementPlugin(),
     ],
+    //警告 webpack 的性能提示
+    performance: {
+        hints: 'warning',
+        //入口起點的最大體積
+        maxEntrypointSize: 50000000,
+        //生成檔案的最大體積
+        maxAssetSize: 30000000,
+        //隻給出 js 檔案的性能提示
+        assetFilter: function (assetFilename) {
+            return assetFilename.endsWith('.js');
+        }
+    },
 
 }
